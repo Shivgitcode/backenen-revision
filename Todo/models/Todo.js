@@ -1,8 +1,6 @@
-const dbConnect = require("/config/database");
-
 const mongoose = require("mongoose");
 
-const todoSchema = mongoose.Schema({
+const todoSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -15,14 +13,14 @@ const todoSchema = mongoose.Schema({
   },
   createdAt: {
     type: Date,
+    required: true,
     default: Date.now(),
   },
   updatedAt: {
     type: Date,
+    required: true,
     default: Date.now(),
   },
 });
 
-const Todo = mongoose.Model("Todo", todoSchema);
-
-module.exports = Todo;
+module.exports = mongoose.model("Todo", todoSchema);
