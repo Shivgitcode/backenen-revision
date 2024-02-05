@@ -10,7 +10,7 @@ const showTodos = async (req, res) => {
       message: "found data",
     });
   } catch (err) {
-    res.send(500).json({
+    res.status(500).json({
       success: false,
       error: err.message,
       message: "internal server error",
